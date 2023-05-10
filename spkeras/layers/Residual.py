@@ -1,24 +1,25 @@
 import tensorflow as tf
-from tensorflow.keras.utils import get_custom_objects
-from tensorflow.keras.layers import Activation, BatchNormalization, Add, Conv2D
-from tensorflow.keras.layers import Layer
-from tensorflow.keras import backend as K
+from tensorflow import keras
+from keras.utils import get_custom_objects
+from keras.layers import Activation, BatchNormalization, Add, Conv2D
+from keras.layers import Layer
+from keras import backend as K
 
-def _Residual(inputs,filters,kernel_size):
-    identity =  Activation("linear", trainable=False)(inputs)
-    x = Conv2D( self.filters,
-                self.kernel_size,
-                padding="same")(identity)
-    x = BatchNormalization()(x)
-    x = Activation("relu")(x)
-    x = Conv2D( self.filters,
-                self.kernel_size,
-                padding="same")(x)
-    x = BatchNormalization()(x)
-    x = Activation("relu")(x)
-    residual = Add()([x, identity])
-    x = Activation("relu")(residual)
-    return x
+# def _Residual(inputs,filters,kernel_size):
+#     identity =  Activation("linear", trainable=False)(inputs)
+#     x = Conv2D( self.filters,
+#                 self.kernel_size,
+#                 padding="same")(identity)
+#     x = BatchNormalization()(x)
+#     x = Activation("relu")(x)
+#     x = Conv2D( self.filters,
+#                 self.kernel_size,
+#                 padding="same")(x)
+#     x = BatchNormalization()(x)
+#     x = Activation("relu")(x)
+#     residual = Add()([x, identity])
+#     x = Activation("relu")(residual)
+#     return x
     
 class Residual(Layer):
     def __init__(self, filters,kernel_size,**kwargs):

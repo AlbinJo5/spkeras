@@ -1,7 +1,8 @@
-from tensorflow.keras import backend as K
+from tensorflow import keras
+from keras import backend as K
 from .layers import  SpikeActivation
-from tensorflow.keras.layers import Lambda, Activation
-from tensorflow.keras import activations
+from keras.layers import Lambda, Activation
+from keras import activations
     
 class cnn_to_snn(object):
     def __init__(self,timesteps=256,thresholding=0.5,signed_bit=0,scaling_factor=1,method=1,amp_factor=100
@@ -36,8 +37,8 @@ class cnn_to_snn(object):
     
     def convert(self, mdl,x_train,thresholding=0.5,scaling_factor=1,method=0,timesteps=256):
         print('Start Converting...')
-        from tensorflow.keras.models import Sequential, model_from_json
-        from tensorflow.keras import activations
+        from keras.models import Sequential, model_from_json
+        from keras import activations
         import numpy as np
         import json
         
@@ -410,8 +411,8 @@ class cnn_to_snn(object):
 
     def chts_model(self,timesteps=256,thresholding=0.5,scaling_factor=1,spike_ext=0,noneloss=False,sf=None):
         #method: 0:threshold norm 1:weight norm 
-        from tensorflow.keras.models import Sequential, model_from_json
-        from tensorflow.keras import activations
+        from keras.models import Sequential, model_from_json
+        from keras import activations
         mdl = self.model
         model = model_from_json(mdl.to_json(),
                                      custom_objects={'SpikeActivation':SpikeActivation})

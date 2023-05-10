@@ -1,8 +1,9 @@
 import tensorflow as tf
-from tensorflow.keras.utils import get_custom_objects
-from tensorflow.keras.layers import Activation
-from tensorflow.keras.layers import Layer
-from tensorflow.keras import backend as K
+from tensorflow import keras
+from keras.utils import get_custom_objects
+from keras.layers import Activation
+from keras.layers import Layer
+from keras import backend as K
 
 def spike(x, threshold=1, bias=0, thresholding=0.5,scaling_factor=1,T=255,ext=0,noneloss=False):
     #x = tf.math.floordiv(x, v_thr, name=None)     

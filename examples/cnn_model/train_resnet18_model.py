@@ -1,16 +1,16 @@
 from tensorflow import keras
-from tensorflow.keras.datasets import cifar10
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.models import Sequential,save_model
-from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten,Input
-from tensorflow.keras import activations
+from keras.datasets import cifar10
+from keras.preprocessing.image import ImageDataGenerator
+from keras.models import Sequential,save_model
+from keras.layers import Dense, Dropout, Activation, Flatten,Input
+from keras import activations
 
-from tensorflow.keras.layers import Conv2D, AveragePooling2D, BatchNormalization, add
-from tensorflow.keras import optimizers
+from keras.layers import Conv2D, AveragePooling2D, BatchNormalization, add
+from keras import optimizers
 import numpy as np
-from tensorflow.keras import backend as K
-from tensorflow.keras import regularizers
-from tensorflow.keras import initializers
+from keras import backend as K
+from keras import regularizers
+from keras import initializers
 
 def Residual(inputs,filters,kernel_size,dropout):
     x = Conv2D( filters,
